@@ -1,0 +1,30 @@
+name: downloader_plugin_test
+description: Downloader plugin test app
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  downloader_plugin:
+    path: ../downloader_plugin
+  
+  device_space:
+    path: ../device_space
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
