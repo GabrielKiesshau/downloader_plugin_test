@@ -46,16 +46,20 @@ packages:
   device_space:
     dependency: "direct main"
     description:
-      path: "../device_space"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: c50fda0fa19ad2b4a489d3e5b3c9482bca91655a
+      url: "git@github.com:GabrielKiesshau/device_space.git"
+    source: git
     version: "0.0.1"
   downloader_plugin:
     dependency: "direct main"
     description:
-      path: "../downloader_plugin"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "0c8c2f6791eb03b816b8668ad1825ef5a826cc2c"
+      url: "git@github.com:GabrielKiesshau/downloader_plugin.git"
+    source: git
     version: "0.0.1"
   fake_async:
     dependency: transitive

@@ -14,11 +14,13 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
-  downloader_plugin:
-    path: ../downloader_plugin
-  
   device_space:
-    path: ../device_space
+    git:
+      url: git@github.com:GabrielKiesshau/device_space.git
+  
+  downloader_plugin:
+    git:
+      url: git@github.com:GabrielKiesshau/downloader_plugin.git
   
 dev_dependencies:
   flutter_test:
