@@ -61,24 +61,30 @@ class _DownloadPageState extends State<DownloadPage> {
   }
 
   void _incrementCounter() async {
-    final task = DownloadTask(
-      url: 'https://google.com',
-      filename: 'testfile.txt',
-      baseDirectory: BaseDirectory.temporary,
-      updates: Updates.statusAndProgress,
-    );
+    if (!await fileDownloader.hasWritePermission()) {
+      await fileDownloader.requestWritePermission();
+    }
 
-    // final task = DownloadTask(
-    //   url: 'https://t4.ftcdn.net/jpg/02/66/72/41/240_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg',
-    //   filename: 'cat.jpg',
-    //   baseDirectory: BaseDirectory.temporary,
-    // );
+    if (await fileDownloader.hasWritePermission()) {
+      final task = DownloadTask(
+        url: 'https://google.com',
+        filename: 'testfile.txt',
+        baseDirectory: BaseDirectory.temporary,
+        updates: Updates.statusAndProgress,
+      );
 
-    await fileDownloader.enqueue(task);
+      // final task = DownloadTask(
+      //   url: 'https://t4.ftcdn.net/jpg/02/66/72/41/240_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg',
+      //   filename: 'cat.jpg',
+      //   baseDirectory: BaseDirectory.temporary,
+      // );
 
-    setState(() {
-      _counter++;
-    });
+      await fileDownloader.enqueue(task);
+
+      setState(() {
+        _counter++;
+      });
+    }
   }
 
   @override
@@ -103,7 +109,6 @@ class _DownloadPageState extends State<DownloadPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        // onPressed: _getSpaceInfo,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
