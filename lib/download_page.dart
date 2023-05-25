@@ -9,7 +9,10 @@ import 'package:downloader_plugin/models/task_status_update.dart';
 import 'package:flutter/material.dart';
 
 class DownloadPage extends StatefulWidget {
-  const DownloadPage({super.key, required this.title});
+  const DownloadPage({
+    Key key,
+    @required this.title,
+  }) : super(key: key);
 
   final String title;
 
